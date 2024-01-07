@@ -6,6 +6,7 @@ import PemasokRoutes from "./routes/PemasokRoutes.js";
 import PenerimaanRoutes from "./routes/PenerimaanRoutes.js";
 import PengeluaranRoutes from "./routes/PengeluaranRoutes.js";
 import LaporanRoutes from "./routes/LaporanRoutes.js";
+import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
