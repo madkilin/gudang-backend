@@ -3,7 +3,7 @@ import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
 
-const Pengeluaran = db.define(
+const ModelPengeluaran = db.define(
   "pengeluaran",
   {
     Idlaporan: DataTypes.STRING,
@@ -22,7 +22,7 @@ const Pengeluaran = db.define(
   }
 );
 
-export default Pengeluaran;
+export default ModelPengeluaran;
 
 (async () => {
   await db.sync();

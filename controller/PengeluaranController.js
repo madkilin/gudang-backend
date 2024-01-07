@@ -1,6 +1,6 @@
-import PengeluaranModel from "../models/PengeluaranModel.js";
-import LaporanModel from "../models/LaporanModel.js";
-import BarangModel from "../models/BarangModel.js";
+import ModelBarang from "../models/BarangModel.js";
+import ModelLaporan from "../models/LaporanModel.js";
+import ModelPengeluaran from "../models/PengeluaranModel.js";
 
 export const getPengeluaran = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ export const getPengeluaran = async (req, res) => {
 
 export const getPengeluaranById = async (req, res) => {
   try {
-    const Pengeluaran = await PengeluaranModel.findOne({
+    const Pengeluaran = await ModelPengeluaran.findOne({
       where: {
         id: req.params.id,
       },
@@ -25,7 +25,7 @@ export const getPengeluaranById = async (req, res) => {
 };
 export const getPengeluaranByIdLaporan = async (req, res) => {
   try {
-    const Pengeluaran = await PengeluaranModel.findOne({
+    const Pengeluaran = await ModelPengeluaran.findOne({
       where: {
         Idlaporan: req.params.id,
       },
@@ -38,17 +38,17 @@ export const getPengeluaranByIdLaporan = async (req, res) => {
 
 export const createPengeluaran = async (req, res) => {
   try {
-    if (!BarangModel.findOne({ where: { KodeBarang: req.body.KodeBarang } })) {
+    if (!ModelBarang.findOne({ where: { KodeBarang: req.body.KodeBarang } })) {
       throw new Error("Kode barang tidak ditemukan");
     }
 
-    const Stok = await BarangModel.findOne({
+    const Stok = await ModelBarang.findOne({
       where: {
         KodeBarang: req.body.KodeBarang,
       },
     });
 
-    const tambahStok = await BarangModel.update(
+    const tambahStok = await ModelBarang.update(
       { ...Stok, stok: parseInt(Stok.stok) - parseInt(req.body.Jumlah) },
       {
         where: {
@@ -56,7 +56,7 @@ export const createPengeluaran = async (req, res) => {
         },
       }
     );
-    const Laporan = await LaporanModel.create({
+    const Laporan = await ModelLaporan.create({
       JenisLaporan: "Pengeluaran",
       Jenis: req.body.JenisPengeluaran,
       Nama: req.body.Nama,
@@ -67,7 +67,7 @@ export const createPengeluaran = async (req, res) => {
       Keterangan: req.body.Keterangan,
       Staf: req.body.Staf,
     });
-    const Pengeluaran = await PengeluaranModel.create({
+    const Pengeluaran = await ModelPengeluaran.create({
       Idlaporan: Laporan.id,
       JenisPengeluaran: req.body.JenisPengeluaran,
       IdPemasok: req.body.IdPemasok,
@@ -91,7 +91,7 @@ export const createPengeluaran = async (req, res) => {
 
 export const updatePengeluaran = async (req, res) => {
   try {
-    const Pengeluaran = await PengeluaranModel.update(req.body, {
+    const Pengeluaran = await ModelPengeluaran.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -104,7 +104,7 @@ export const updatePengeluaran = async (req, res) => {
 
 export const deletePengeluaran = async (req, res) => {
   try {
-    const Pengeluaran = await PengeluaranModel.destroy({
+    const Pengeluaran = await ModelPengeluaran.destroy({
       where: {
         id: req.params.id,
       },
