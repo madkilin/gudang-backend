@@ -2,3 +2,4 @@
 /node_modules
 /Start.sh
 /Start.txt
+.env
