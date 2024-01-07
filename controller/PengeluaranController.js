@@ -1,5 +1,5 @@
-import PengeluaranModel from "../models/pengeluaranModel.js";
-import LaporanModel from "../models/laporanModel.js";
+import PengeluaranModel from "../models/PengeluaranModel.js";
+import LaporanModel from "../models/LaporanModel.js";
 import BarangModel from "../models/barangModel.js";
 
 export const getPengeluaran = async (req, res) => {
