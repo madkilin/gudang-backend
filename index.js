@@ -6,6 +6,7 @@ import PemasokRoutes from "./routes/PemasokRoutes.js";
 import PenerimaanRoutes from "./routes/PenerimaanRoutes.js";
 import PengeluaranRoutes from "./routes/PengeluaranRoutes.js";
 import LaporanRoutes from "./routes/LaporanRoutes.js";
+dotenv.config();
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use(LaporanRoutes);
 app.use(PengeluaranRoutes);
 app.use(PenerimaanRoutes);
 
-app.listen(3000, () => {
-  console.log("Listening on port 3000");
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log("Listening on port " + port);
 });
