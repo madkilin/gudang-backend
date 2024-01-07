@@ -1,0 +1,177 @@
+GET http://localhost:3000/users
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "janesmith@example.com",
+    "password": "janesmith@example.com"
+}
+
+####
+GET http://localhost:3000/users/1
+
+####
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "John Baelz",
+    "username": "JohnBaelz",
+    "email": "John@itg.ac.id",
+    "password": "JohnBaelz",
+    "number": "0895396161325",
+    "nik": "2106184",
+    "gender": "Laki-laki",
+    "role": "Staf"
+}
+
+###
+PATCH  http://localhost:3000/users/3
+Content-Type: application/json
+
+{
+    "name": "Agus",
+    "username": "Agus",
+    "email": "agus@itg.ac.id",
+    "password": "Agus",
+    "number": "0895396161325",
+    "nik": "2106015",
+    "gender": "Laki-laki",
+    "role": "Admin"
+}
+
+###
+DELETE http://localhost:3000/users/2
+
+###
+GET http://localhost:3000/Barang
+
+####
+GET http://localhost:3000/Barang/1
+
+####
+POST http://localhost:3000/Barang
+Content-Type: application/json
+
+{
+    "kodebarang": "E001",
+    "namabarang": "Laptop",
+    "kategori": "Elektronik",
+    "deskripsi": "Sebuah barang elektronik",
+    "stok": "1"
+}
+
+###
+PATCH  http://localhost:3000/Barang/3
+Content-Type: application/json
+
+{
+    "kodebarang": "E002",
+    "namabarang": "Handphone",
+    "kategori": "Elektronik",
+    "deskripsi": "Sebuah barang elektronik",
+    "stok": "1"
+}
+
+###
+DELETE http://localhost:3000/Barang/2
+
+
+
+###
+GET http://localhost:3000/Pemasok
+
+####
+GET http://localhost:3000/Pemasok/1
+
+####
+POST http://localhost:3000/Pemasok
+Content-Type: application/json
+
+{
+    "name": "Agus",
+    "number": "0895396161325",
+    "email": "2106015@itg.ac.id",
+    "gender": "Laki-laki",
+    "perusahaan": "Gudang",
+    "alamat": "Jl. Mayor Syamsudin"
+}
+
+###
+PATCH  http://localhost:3000/Pemasok/3
+Content-Type: application/json
+
+{
+    "name": "Iqbal",
+    "number": "0895396161325",
+    "email": "2106184@itg.ac.id",
+    "gender": "Laki-laki",
+    "perusahaan": "REID",
+    "alamat": "Jl. Mayor Syamsudin"
+}
+
+###
+DELETE http://localhost:3000/Pemasok/2
+
+
+###
+GET http://localhost:3000/Penerimaan
+###
+GET http://localhost:3000/Pengeluaran
+###
+GET http://localhost:3000/Laporan
+
+####
+GET http://localhost:3000/Penerimaan/1
+
+####
+POST http://localhost:3000/Penerimaan
+Content-Type: application/json
+
+{
+    "JenisPenerimaan": "Return",
+    "IdPemasok": "1",
+    "Nama": "Iqbal",
+    "Perusahaan": "REID",
+    "KodeBarang": "E003",
+    "NamaBarang": "Kipas Angin",
+    "Jumlah": "4",
+    "KondisiBarang": "Bagus",
+    "Keterangan": "Baru 1 detik dibalikin, emang parah",
+    "Staf": "Baelz"
+  }
+
+####
+POST http://localhost:3000/Pengeluaran
+Content-Type: application/json
+
+{
+    "JenisPengeluaran": "Return",
+    "IdPemasok": "1",
+    "Nama": "Iqbal",
+    "Perusahaan": "REID",
+    "KodeBarang": "E002",
+    "NamaBarang": "Handphone",
+    "Jumlah": "6",
+    "KondisiBarang": "Bagus",
+    "Keterangan": "Baru 1 detik dibalikin, emang parah",
+    "Staf": "Baelz"
+  }
+
+###
+PATCH  http://localhost:3000/Penerimaan/3
+Content-Type: application/json
+
+{
+    "name": "Iqbal",
+    "number": "0895396161325",
+    "email": "2106184@itg.ac.id",
+    "gender": "Laki-laki",
+    "perusahaan": "REID",
+    "alamat": "Jl. Mayor Syamsudin"
+}
+
+###
+DELETE http://localhost:3000/Penerimaan/2
