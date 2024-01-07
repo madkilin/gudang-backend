@@ -1,6 +1,6 @@
-import PenerimaanModel from "../models/PenerimaanModel.js";
-import LaporanModel from "../models/LaporanModel.js";
-import Barang from "../models/BarangModel.js";
+import PenerimaanModel from "../models/penerimaanModel.js";
+import LaporanModel from "../models/laporanModel.js";
+import Barang from "../models/barangModel.js";
 
 export const getPenerimaan = async (req, res) => {
   try {
