@@ -1,6 +1,6 @@
 import PenerimaanModel from "../models/PenerimaanModel.js";
 import LaporanModel from "../models/LaporanModel.js";
-import BarangModel from "../models/BarangModel.js";
+import Barang from "../models/BarangModel.js";
 
 export const getPenerimaan = async (req, res) => {
   try {
@@ -38,17 +38,17 @@ export const getPenerimaanByIdLaporan = async (req, res) => {
 
 export const createPenerimaan = async (req, res) => {
   try {
-    if (!BarangModel.findOne({ where: { KodeBarang: req.body.KodeBarang } })) {
+    if (!Barang.findOne({ where: { KodeBarang: req.body.KodeBarang } })) {
       throw new Error("Kode barang tidak ditemukan");
     }
 
-    const Stok = await BarangModel.findOne({
+    const Stok = await Barang.findOne({
       where: {
         KodeBarang: req.body.KodeBarang,
       },
     });
 
-    const tambahStok = await BarangModel.update(
+    const tambahStok = await Barang.update(
       { ...Stok, stok: parseInt(Stok.stok) + parseInt(req.body.Jumlah) },
       {
         where: {
